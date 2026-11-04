@@ -68,7 +68,7 @@ erDiagram
 | managers | 6 |
 | employees | ~110 |
 | projects | 25 |
-| employee_projects | see `03_queries.sql` for current count |
+| employee_projects | 288 |
 
 ### Constraints
 
