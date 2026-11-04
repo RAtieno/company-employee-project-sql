@@ -1,6 +1,15 @@
-/****** 01_create_tables.sql
-        Creates MyDatabase schemas: tables, keys and constraints.
-        Object:  Table [dbo].[departments]               ******/
+/* 01_create_tables.sql
+   Creates the MyDatabase schema: tables, keys, and constraints.
+   Run this first, then 02_insert_data.sql. */
+
+IF DB_ID('MyDatabase') IS NULL
+    CREATE DATABASE MyDatabase;
+GO
+
+USE MyDatabase;
+GO
+
+/****** Object:  Table [dbo].[departments] ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
