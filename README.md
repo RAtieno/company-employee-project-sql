@@ -87,6 +87,7 @@ erDiagram
 ├── 01_create_tables.sql     # Schema: tables, keys, constraints
 ├── 02_insert_data.sql       # Sample data (generated, then exported)
 ├── 03_queries.sql           # 10 business questions with solutions
+├── 04_views_and_procedures  # Add views and stored procedures
 └── images/
     └── er_diagram.png       # ER diagram exported from SSMS or dbdiagram.io
 ```
@@ -138,6 +139,16 @@ All queries are in `03_queries.sql`.
 | 9 | Hires per year with running total | CTE, window `SUM()` |
 | 10 | Employees on multiple projects | `STRING_AGG`, `HAVING` |
 
+## Database Objects
+
+| Object | Type | Purpose |
+|--------|------|---------|
+| `vw_employee_details` | View | Employee profile with department and manager |
+| `vw_project_staffing` | View | Team size, hours, and lead per project |
+| `vw_employee_workload` | View | Weekly hours per employee with a workload flag |
+| `usp_get_department_report` | Stored procedure | Employees and projects for a department |
+| `usp_assign_employee_to_project` | Stored procedure | Validated assignment (checks for duplicates and over 40 hours) |
+
 ## Key Findings
 
 - **Salary:** HR department has the highest average salary at 104300, while QA department has the lowest at 78318.
@@ -149,8 +160,6 @@ All queries are in `03_queries.sql`.
 ## Possible Improvements
 
 - Merge `managers` into `employees` using a self-referencing `manager_id`, so managers are employees too
-- Add views for common reports (for example, project staffing summary)
-- Add a stored procedure that returns a department's employees and projects
 - Add indexes on foreign key columns and compare query performance
 - Build a Power BI dashboard connected to the database
 
